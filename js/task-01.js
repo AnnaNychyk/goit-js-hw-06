@@ -1,32 +1,11 @@
-// Number of categories: 3
+const categoryEl = document.querySelectorAll('li.item');
 
-// Для каждого элемента li.item в списке ul#categories, 
-// найдет и выведет в консоль текст заголовка элемента(тега < h2 >) 
-// и количество элементов в категории(всех вложенных в него < li >).
+console.log(`Number of categories: ${categoryEl.length}`)
 
-// Category: Animals
-// Elements: 4
+for (let i = 0; i < categoryEl.length; i += 1) { 
+const titleOfCategoryEl = categoryEl[i].firstElementChild.textContent;
+console.log(`Category: ${titleOfCategoryEl}`)
 
-// Category: Products
-// Elements: 3
-
-// Category: Technologies
-// Elements: 5
-
-const NumberOfCategories = document.querySelectorAll('li.item');
-console.log(`Number of categories: ${NumberOfCategories.length}`)
-
-const categories = document.querySelector('h2');
-console.log(categories.textContent)
-
-const makeColorPickerOptions = options => {
-  return options.map(option => {
-    const buttonEl = document.createElement('button');
-    buttonEl.type = 'button';
-    buttonEl.classList.add('color-picker__option');
-    buttonEl.textContent = option.label;
-    buttonEl.style.backgroundColor = option.color;
-
-    return buttonEl;
-  });
-};
+const elementsOfCategory = categoryEl[i].querySelectorAll('li');
+console.log(`Elements: ${elementsOfCategory.length}`)
+}
