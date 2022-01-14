@@ -22,20 +22,20 @@ const makeListOfImages = ({ url, alt }) => {
   const itemOfImage = document.createElement('li');
   
   const imageEl = document.createElement('img');
+  imageEl.classList.add('gallery-img');
   imageEl.src = url;
   imageEl.alt = alt;
  
   itemOfImage.append(imageEl);
 
-  console.log(itemOfImage)
   return itemOfImage;
 
 };
 
-elements = images.map(makeListOfImages);
+const elements = images.map(makeListOfImages);
 listOfImagesEl.append(...elements);
 
 // listOfImagesEl.insertAdjacentHTML(
 //   'afterbegin',
-//   ...elements,
+//   makeListOfImages,
 // );
