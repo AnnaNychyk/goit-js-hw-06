@@ -17,25 +17,30 @@ const images = [
 const listOfImagesEl = document.querySelector('.gallery');
 // console.log(listImagesEl)
 
+const newStr = image => `<li><img class="gallery-img" src="${image.url}" alt="${image.alt}"></li>`;
 
-const makeListOfImages = ({ url, alt }) => {
-  const itemOfImage = document.createElement('li');
-  
-  const imageEl = document.createElement('img');
-  imageEl.classList.add('gallery-img');
-  imageEl.src = url;
-  imageEl.alt = alt;
- 
-  itemOfImage.append(imageEl);
+const elements = images.map(newStr).join('');
 
-  return itemOfImage;
+listOfImagesEl.insertAdjacentHTML(
+  'afterbegin',
+  elements,
+);
 
-};
 
-const elements = images.map(makeListOfImages);
-listOfImagesEl.append(...elements);
+
+// const newStr = image => `<li><img class="gallery-img" src="${image.url}" alt="${image.alt}"></li>`;
+
+// // const elements = images.map(newStr).join('');
+// const elements = images.reduce((acc, newStr) => {
+//   acc += newStr;
+//   console.log(acc);
+//   console.log(newStr);
+//   return acc;
+
+// }, '');
 
 // listOfImagesEl.insertAdjacentHTML(
 //   'afterbegin',
-//   makeListOfImages,
+//   elements,
 // );
+

@@ -1,14 +1,9 @@
-const input = document.querySelector('#name-input');
-const nameText = document.querySelector('#name-output');
-
-input.addEventListener('input', onInputChange);
+const inputRef = document.querySelector('#name-input');
+const nameTextRef = document.querySelector('#name-output');
 
 
-function onInputChange(event) {
-    nameText.textContent = event.currentTarget.value;
-    console.log(nameText)
+function onInputChange() {
+    inputRef.value === '' ? nameTextRef.textContent = 'Anonymous' : nameTextRef.textContent = inputRef.value;
 }
 
-// function onLicenseChange(event) {
-//   refs.btn.disabled = !event.currentTarget.checked;
-// }
+inputRef.addEventListener('input', onInputChange);
